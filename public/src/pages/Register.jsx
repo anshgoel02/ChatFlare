@@ -1,7 +1,6 @@
-import React from "react";
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 import Logo from "../assets/logo.svg";
 import { ToastContainer, toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
@@ -9,6 +8,7 @@ import axios from 'axios';
 import { registerRoute } from "../utils/APIRoutes";
 
 function Register() {
+    const navigate = useNavigate();
     const [values, setValues] = useState({
         username: "",
         email: "",
@@ -27,12 +27,19 @@ function Register() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (handleValidation()) {
-            const { username, email, password, confirmPassword } = values;
+            const { username, email, password } = values;
             const { data } = await axios.post(registerRoute, {
                 username,
                 email,
                 password
             });
+            if (data.status === false) {
+                toast.error(data.message, toastOptions);
+            }
+            if (data.status === true) {
+                localStorage.setItem('chat-flare-user', JSON.stringify(data.user));
+            }
+            navigate("/");
         }
     }
 
