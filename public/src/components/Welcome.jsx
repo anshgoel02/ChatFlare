@@ -7,7 +7,7 @@ function Welcome({ currentUser }) {
         <Container>
             <img src={Giphy} alt="Robot" />
             <h1>
-                Welcome <span>{currentUser?.username}!</span>
+                Welcome <span>{currentUser.username}!</span>
             </h1>
             <h3>Please select a chat to start messaging</h3>
         </Container>
