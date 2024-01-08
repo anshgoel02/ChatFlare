@@ -20,7 +20,6 @@ function ChatInput({ handleSendMessage }) {
     }
 
     const handleMessageChange = (e) => {
-        // console.log("Event: ", e);
         setMsg(e.target.value);
     }
 
