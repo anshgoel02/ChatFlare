@@ -157,6 +157,16 @@ const Container = styled.div`
         gap: 1rem;
         overflow: auto;
         
+        &::-webkit-scrollbar {
+            width: 0.2rem;
+            &-thumb {
+                background-color: #ffffff39;
+                // background-color: white;
+                width: 0.1rem;
+                border-radius: 1rem;
+            }
+        }
+        
         .message {
             display: flex;
             align-items: center;
