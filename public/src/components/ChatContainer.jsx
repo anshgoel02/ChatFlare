@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import ChatInput from "./ChatInput";
 import Logout from "./Logout";
-import Messages from "./Messages";
 import axios from "axios";
 import { sendMessageRoute, getAllMessagesRoute } from "../utils/APIRoutes";
 import { v4 as uuidv4 } from "uuid";
@@ -26,17 +25,6 @@ function ChatContainer({ currentChat, currentUser, socket }) {
             getAllMessages();
         }
     }, [currentChat]);
-
-    // useEffect(() => {
-    //     const getCurrentChat = async () => {
-    //         if (currentChat) {
-    //             await JSON.parse(
-    //                 localStorage.getItem("chat-flare-user")
-    //             )._id;
-    //         }
-    //     };
-    //     getCurrentChat();
-    // }, [currentChat]);
 
     const handleSendMessage = async (msg) => {
         await axios.post(sendMessageRoute, {
