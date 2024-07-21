@@ -20,3 +20,8 @@ export default function App() {
 }
 
 // /* /index.html 200
+
+// [[redirects]]
+//   from = "/*"
+//   to = "/index.html"
+//   status = 200
