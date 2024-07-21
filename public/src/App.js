@@ -18,3 +18,5 @@ export default function App() {
 		</BrowserRouter>
 	)
 }
+
+// /* /index.html 200
