@@ -4,6 +4,19 @@ const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const messageRoutes = require("./routes/messagesRoutes");
 const socket = require("socket.io");
+// const { MongoClient, ServerApiVersion } = require('mongodb');
+
+const uri = "mongodb+srv://goelansh164:mVTOh2jFAGbGYgKC@cluster0.qpup1gz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+
+
+// // Create a MongoClient with a MongoClientOptions object to set the Stable API version
+// const client = new MongoClient(uri, {
+//     serverApi: {
+//       version: ServerApiVersion.v1,
+//       strict: true,
+//       deprecationErrors: true,
+//     }
+//   });
 
 
 const app = express();
@@ -19,7 +32,7 @@ app.use("/api/messages", messageRoutes);
 //     useNewUrlParser: true,
 //     useUnifiedTopology: true,
 // })
-mongoose.connect(process.env.MONGO_URL)
+mongoose.connect(process.env.MONGODB_ATLAS_URL)
     .then(() => {
         console.log("DB connection successful");
     })
